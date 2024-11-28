@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:ProjectDemo.ViewModels"
+             xmlns:models="clr-namespace:ProjectDemo.Models"
+             x:Class="ProjectDemo.Pages.AllPizzasPage"
+             Title="AllItems"
+             x:DataType="vm:AllPizzaViewModel">
+
+    <ContentPage.Triggers>
+        <DataTrigger TargetType="ContentPage"
+                    Binding="{Binding FromSearch}"
+                    Value="True">
+            <Setter Property="Title" Value="Search fo Pizza"/>
+        </DataTrigger>
+    </ContentPage.Triggers>
+
+    <Grid RowDefinitions="Auto, *">
+        <SearchBar Grid.Row="0"
+                    x:Name="searchBar"
+                    Placeholder="Search for Pizza..."
+                    PlaceholderColor="Goldenrod"
+                    CancelButtonColor="Red"
+                    SearchCommand="{Binding SearchPizzasCommand}"
+                    SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
+                    TextChanged="searchBar_TextChanged"/>
+        <ScrollView Grid.Row="1"
+                    Margin="5">        
+            <VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding Pizzas}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                            ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Pizza">
+                            <Border StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0"
+                                    BackgroundColor="PaleGoldenrod"
+                                    Padding="10"
+                                    Margin="5">
+                                <Grid ColumnDefinitions="130, *"
+                                        ColumnSpacing="10">
+                                    <Image Grid.Column="0" 
+                                        Source="{Binding Image}"
+                                        HeightRequest="130"
+                                        WidthRequest="130"/>
+                                    <VerticalStackLayout Grid.Column="1" 
+                                                        VerticalOptions="Center"
+                                                        Spacing="5">
+                                        <Label Text="{Binding Name}"
+                                                FontSize="20"/>
+                                        <Grid ColumnDefinitions="*, *">
+                                            <Label Grid.Column="0"
+                                                    Text="{Binding Price, StringFormat='{0:N2} bath'}"
+                                                    FontAttributes="Bold"/>
+                                             <HorizontalStackLayout Grid.Column="1"
+                                                            HorizontalOptions="End"
+                                                            VerticalOptions="Center"
+                                                            Spacing="2">
+                                        <Label Text="4"/>
+                                        <Image Source="star.png"
+                                                HeightRequest="15"
+                                                WidthRequest="15">
+                                                <Image.Behaviors>
+                                                    <toolkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+                                                </Image.Behaviors>
+                                        </Image>
+                                    </HorizontalStackLayout>
+                                        </Grid>
+                                        <Border StrokeShape="RoundRectangle 25"
+                                                StrokeThickness="0"
+                                                BackgroundColor="Gold"
+                                                HeightRequest="45"
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="End"
+                                                Padding="30, 5">
+                                            <HorizontalStackLayout Spacing="2"
+                                                                    Padding="2">
+                                                <Label Text="View more"
+                                                    VerticalOptions="Center"/>
+                                                <Image Source="right_arrow.png"
+                                                    HeightRequest="25"
+                                                    VerticalOptions="Center"/>
+                                            </HorizontalStackLayout>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AllPizzaViewModel}},
+                                                    Path=GoToDetailsPageCommand}"
+                                                    CommandParameter="{Binding .}"/>
+                                            </Border.GestureRecognizers>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                            <BoxView HeightRequest="100"
+                                    Color="White"/>
+                            <Label Text="No Pizza available"
+                                    FontSize="25"
+                                    TextColor="Gray"
+                                    HorizontalTextAlignment="Center">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                Binding="{Binding Search}"
+                                                Value="true">
+                                        <Setter Property="Text"
+                                                Value="Search..."/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ActivityIndicator Grid.RowSpan="2"
+                            IsRunning="{Binding Searching}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Color="DarkGoldenrod"/>
+    </Grid>
+</ContentPage>
