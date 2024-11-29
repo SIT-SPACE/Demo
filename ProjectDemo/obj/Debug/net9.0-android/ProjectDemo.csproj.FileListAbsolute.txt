@@ -135,3 +135,4 @@ D:\Users\phisi\OneDrive - Thammasat University\Coding\DX212\Project\Demo\Project
 D:\Users\phisi\OneDrive - Thammasat University\Coding\DX212\Project\Demo\ProjectDemo\obj\Debug\net9.0-android\ProjectDemo.csproj.CoreCompileInputs.cache
 D:\Users\phisi\OneDrive - Thammasat University\Coding\DX212\Project\Demo\ProjectDemo\obj\Debug\net9.0-android\ProjectDemo.dll
 D:\Users\phisi\OneDrive - Thammasat University\Coding\DX212\Project\Demo\ProjectDemo\obj\Debug\net9.0-android\ProjectDemo.pdb
+D:\Users\phisi\OneDrive - Thammasat University\Coding\DX212\Project\Demo\ProjectDemo\obj\Debug\net9.0-android\ProjectDemo.sourcelink.json

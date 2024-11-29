@@ -1,4 +1,6 @@
-using UIKit;
+
+
+using CommunityToolkit.Maui.Behaviors;
 
 namespace ProjectDemo.Pages;
 
@@ -15,9 +17,20 @@ public partial class DetailPage : ContentPage
 	protected override void OnAppearing()
 	{
 		base.OnAppearing();
-		var bottom = UIApplication.SharedApplication.Delegate.GetWindow().
-		SafeAreaInsets.Bottom;
-
-		bottomBox.Margin = new Thickness(-1, 0, -1, (bottom+1) * -1);
 	}
+
+	async void ImageButton_Clicked(Object sender, EventArgs e)
+	{
+		await Shell.Current.GoToAsync("..", animate: true);
+	}
+
+    protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
+    {
+        base.OnNavigatedFrom(args);
+		Behaviors.Add(new CommunityToolkit.Maui.Behaviors.StatusBarBehavior
+		{
+			StatusBarColor = Colors.DarkGoldenrod, 
+			StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.DarkContent
+		});
+    }
 }

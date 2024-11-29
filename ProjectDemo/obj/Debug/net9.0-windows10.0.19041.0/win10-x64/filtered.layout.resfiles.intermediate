@@ -48,7 +48,9 @@ appiconWideTile.scale-125.png
 appiconWideTile.scale-150.png
 appiconWideTile.scale-200.png
 appiconWideTile.scale-400.png
+back_button.scale-100.png
 canteen.scale-100.png
+decrement.scale-100.png
 dotnet_bot.scale-100.png
 dotnet_bot.scale-125.png
 dotnet_bot.scale-150.png
@@ -56,6 +58,7 @@ dotnet_bot.scale-200.png
 dotnet_bot.scale-400.png
 eating_disorder.scale-100.png
 healthy_food.scale-100.png
+increment.scale-100.png
 pizza_1.scale-100.png
 pizza_10.scale-100.png
 pizza_2.scale-100.png

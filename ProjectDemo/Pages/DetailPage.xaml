@@ -12,6 +12,16 @@
         <toolkit:StatusBarBehavior StatusBarColor="White"
                                    StatusBarStyle="DarkContent"/>
     </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="QuantityBtn" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <ScrollView Padding="15">
             <VerticalStackLayout Spacing="15">
@@ -65,6 +75,67 @@
                 HeightRequest="150"
                 Padding="15"
                 StrokeShape="RoundRectangle 30, 30, 0, 0">
+            <Border.Shadow>
+                <Shadow Brush="Gold"
+                        Radius="100"/>
+            </Border.Shadow>
+            <Grid RowDefinitions="Auto, Auto"
+                    ColumnDefinitions="*, *">
+                <Label Grid.Row="0"
+                    Grid.Column="0"
+                    Text="{Binding Pizza.Amount, StringFormat='{0:N2} bath'}"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+                <Grid Grid.Row="0"
+                    Grid.Column="1"
+                    ColumnDefinitions="50, 40, 50"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                    <ImageButton Grid.Column="0"
+                                Source="decrement.png"
+                                Style="{StaticResource QuantityBtn}"
+                                Command="{Binding RemoveFormCartCommand}">                        
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label Grid.Column="1"
+                            Text="{Binding Pizza.CartQuantity}"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontSize="25"/>
+                    <ImageButton Grid.Column="2"
+                                Source="increment.png"
+                                Style="{StaticResource QuantityBtn}"
+                                Command="{Binding AddToCartCommand}">                        
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                </Grid>
+            <Button Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Text="View  Cart"
+                    BackgroundColor="Goldenrod"
+                    HorizontalOptions="Center"
+                    CornerRadius="22"
+                    Padding="80, 10"
+                    VerticalOptions="End"
+                    Margin="0, 20"/>
+            </Grid> 
         </Border>
+       <ImageButton Source="back_button.png"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    Margin="15"
+                    HeightRequest="10"
+                    WidthRequest="10"
+                    Clicked="ImageButton_Clicked">
+            <ImageButton.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+            </ImageButton.Behaviors>
+        </ImageButton>
     </Grid>
 </ContentPage>
