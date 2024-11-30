@@ -1,5 +1,3 @@
-using ProjectDemo.Models;
-
 namespace ProjectDemo.Services;
 
 public class PizzaService

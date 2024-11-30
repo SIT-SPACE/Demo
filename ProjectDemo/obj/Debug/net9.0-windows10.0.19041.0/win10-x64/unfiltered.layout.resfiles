@@ -50,6 +50,7 @@ appiconWideTile.scale-200.png
 appiconWideTile.scale-400.png
 back_button.scale-100.png
 canteen.scale-100.png
+check.scale-100.png
 decrement.scale-100.png
 dotnet_bot.scale-100.png
 dotnet_bot.scale-125.png
@@ -71,6 +72,7 @@ pizza_8.scale-100.png
 pizza_9.scale-100.png
 right_arrow.scale-100.png
 star.scale-100.png
+trash.scale-100.png
 woman.scale-100.png
 splashSplashScreen.scale-100.png
 splashSplashScreen.scale-125.png

@@ -15,7 +15,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			})
-			.UseMauiCommunityToolkit();
+			.UseMauiCommunityToolkit(options =>
+  				{
+    				options.SetShouldEnableSnackbarOnWindows(true);
+  				});
 
 #if DEBUG
 		builder.Logging.AddDebug();
@@ -28,9 +31,11 @@ public static class MauiProgram
 	private static IServiceCollection AddPizzaServices(IServiceCollection services)
 	{
 		services.AddSingleton<PizzaService>();
-		services.AddSingletonWithShellRoute<HomePage,HomeViewModel>(nameof(HomePage));
+		services.AddSingleton<HomePage>().AddSingleton<HomeViewModel>();
 		services.AddSingletonWithShellRoute<AllPizzasPage,AllPizzaViewModel>(nameof(AllPizzasPage));
 		services.AddSingletonWithShellRoute<DetailPage,DetailsViewModel>(nameof(DetailPage));
+		services.AddSingleton<CartViewModel>();
+		services.AddTransient<CartPage>();
 		return services;
 	}
 }

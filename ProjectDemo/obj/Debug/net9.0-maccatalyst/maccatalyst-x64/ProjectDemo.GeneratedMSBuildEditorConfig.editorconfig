@@ -41,6 +41,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = ProjectDemo.Pages.AllPizza
 build_metadata.AdditionalFiles.TargetPath = Pages\AllPizzasPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\AllPizzasPage.xaml
 
+[D:/Users/phisi/OneDrive - Thammasat University/Coding/DX212/Project/Demo/ProjectDemo/Pages/CartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectDemo.Pages.CartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CartPage.xaml
+
+[D:/Users/phisi/OneDrive - Thammasat University/Coding/DX212/Project/Demo/ProjectDemo/Pages/CheckoutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectDemo.Pages.CheckoutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CheckoutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CheckoutPage.xaml
+
 [D:/Users/phisi/OneDrive - Thammasat University/Coding/DX212/Project/Demo/ProjectDemo/Pages/DetailPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = ProjectDemo.Pages.DetailPage.xaml
